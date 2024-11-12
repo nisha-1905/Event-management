@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #34495e;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Navigation Styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Main Section Styles */
+        main {
+            padding: 2rem;
+            text-align: center;
+            background-color: white;
+            margin: 2rem auto;
+            width: 80%;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        main h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background-color: #34495e;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="user_registration.html">User Registration</a></li>
+                <li><a href="create_event.html">Create Event</a></li>
+                <li><a href="event_listing.html">Event Listing</a></li>
+                <li><a href="event_registration.html">Event Registration</a></li>
+                <li><a href="event_management.html">Event Management</a></li>
+                <li><a href="user_profile.html">User Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Welcome to the Event Management System</h2>
+        <p>Select a module from the navigation menu above to get started.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Event Management System</p>
+    </footer>
+</body>
+</html>

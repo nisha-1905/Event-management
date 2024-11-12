@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 0.8rem 2rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .edit-form {
+            margin-top: 1.5rem;
+        }
+
+        .edit-form input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            width: 100%;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .edit-form button {
+            background-color: #28a745;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .edit-form button:hover {
+            background-color: #218838;
+        }
+
+        .cancel-btn {
+            background-color: #dc3545;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .cancel-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Your Profile</h2>
+        <p>Username: <span id="username"></span></p>
+        <p>Email: <span id="email"></span></p>
+        <button id="edit-button">Edit Profile</button>
+
+        <div class="edit-form" style="display: none;">
+            <h3>Edit Profile</h3>
+            <input type="text" id="new-username" placeholder="Enter new username" />
+            <input type="email" id="new-email" placeholder="Enter new email" />
+            <button id="save-button">Save Changes</button>
+            <button class="cancel-btn" id="cancel-button">Cancel</button>
+        </div>
+    </main>
+
+    <script>
+        // Sample user data to populate the profile (this should be dynamically loaded from a database in a real-world application)
+        const user = {
+            username: 'john_doe',
+            email: 'john@example.com'
+        };
+
+        // Display the current user profile
+        document.getElementById('username').textContent = user.username;
+        document.getElementById('email').textContent = user.email;
+
+        const editButton = document.getElementById('edit-button');
+        const editForm = document.querySelector('.edit-form');
+        const cancelButton = document.getElementById('cancel-button');
+        const saveButton = document.getElementById('save-button');
+
+        // When the "Edit Profile" button is clicked, show the edit form
+        editButton.addEventListener('click', () => {
+            editForm.style.display = 'block';
+            document.getElementById('new-username').value = user.username;
+            document.getElementById('new-email').value = user.email;
+            editButton.style.display = 'none';
+        });
+
+        // When the "Cancel" button is clicked, hide the edit form
+        cancelButton.addEventListener('click', () => {
+            editForm.style.display = 'none';
+            editButton.style.display = 'block';
+        });
+
+        // When the "Save Changes" button is clicked, update the user profile
+        saveButton.addEventListener('click', () => {
+            const newUsername = document.getElementById('new-username').value;
+            const newEmail = document.getElementById('new-email').value;
+
+            // Simple validation for empty fields
+            if (newUsername.trim() === '' || newEmail.trim() === '') {
+                alert('Please fill in both fields.');
+                return;
+            }
+
+            // Update the user object and display the updated profile
+            user.username = newUsername;
+            user.email = newEmail;
+
+            document.getElementById('username').textContent = user.username;
+            document.getElementById('email').textContent = user.email;
+
+            // Hide the edit form and show the updated profile
+            editForm.style.display = 'none';
+            editButton.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

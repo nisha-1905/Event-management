@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        main {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Register for Event</h2>
+        <form id="event-registration-form">
+            <select id="event-select">
+                <option value="">Select Event</option>
+                <!-- Event options will be added here -->
+            </select><br>
+            <div class="error" id="error-message">Please select an event to register.</div>
+            <button type="submit">Register</button>
+        </form>
+    </main>
+
+    <script>
+        const events = [
+            { id: 1, name: 'Tech Conference' },
+            { id: 2, name: 'Music Festival' },
+            { id: 3, name: 'Art Exhibition' },
+            { id: 4, name: 'Food Truck Rally' },
+            { id: 5, name: 'Startup Pitch Event' },
+            { id: 6, name: 'Health and Wellness Seminar' },
+            { id: 7, name: 'Marathon Race' },
+            { id: 8, name: 'Literature and Poetry Night' },
+            { id: 9, name: 'Summer Beach Party' },
+            { id: 10, name: 'Charity Auction Gala' }
+        ];
+
+        const eventSelect = document.getElementById('event-select');
+        const errorMessage = document.getElementById('error-message');
+
+        // Dynamically populate event options
+        events.forEach(event => {
+            const option = document.createElement('option');
+            option.value = event.id;
+            option.textContent = event.name;
+            eventSelect.appendChild(option);
+        });
+
+        // Form submission event listener
+        document.getElementById('event-registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedEvent = eventSelect.value;
+            if (!selectedEvent) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert(`You have successfully registered for the event! Event ID: ${selectedEvent}`);
+            }
+        });
+    </script>
+</body>
+</html>
